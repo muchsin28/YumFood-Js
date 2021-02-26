@@ -6,7 +6,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(router);
+app.get("/", (req, res) => res.redirect("/api"));
+app.use("/api", router);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://127.0.0.1:${PORT} `);
